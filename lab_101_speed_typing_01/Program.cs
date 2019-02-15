@@ -11,8 +11,8 @@ namespace lab_101_speed_typing_01
     {
         static void Main(string[] args)
         {
-            //Random();
-            Alphabet();
+            Random();
+            //Alphabet();
         }
 
         public static void Random()
@@ -22,7 +22,7 @@ namespace lab_101_speed_typing_01
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             Console.WriteLine("Please enter your word: ");
-            while (stopWatch.ElapsedMilliseconds < 1000)
+            while (stopWatch.ElapsedMilliseconds < 10000)
             {
                 word += Console.ReadKey().KeyChar;
 
