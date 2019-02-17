@@ -9,16 +9,17 @@ namespace lab_101_speed_typing_01
 {
     class Program
     {
+        static string abc = "abcdefghijklmnopqrstuvwxyz", word = "";
+        static int score = 0;
         static void Main(string[] args)
         {
-            Random();
-            //Alphabet();
+            //Random();
+            Alphabet();
         }
 
         public static void Random()
         {
-            string abc = "abcdefghijklmnopqrstuvwxyz", word = "";
-            int score = 0;
+           
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             Console.WriteLine("Please enter your word: ");
@@ -45,17 +46,16 @@ namespace lab_101_speed_typing_01
 
         public static void Alphabet()
         {
-            string abc = "abcdefghijklmnopqrstuvwxyz", word = "";
-            int score = 0;
+            
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
             Console.WriteLine("Please enter your word: ");
-            while (stopWatch.ElapsedMilliseconds < 10000)
+            while (stopWatch.ElapsedMilliseconds < 5000)
             {
                 word += Console.ReadKey().KeyChar;
 
             }
-            for (int i = 0; i < word.Length; i++)
+            for (int i = 0; i < word.Length; i++)                                                                     
             {
                 if (word[i] == abc[i % 26])
                 {

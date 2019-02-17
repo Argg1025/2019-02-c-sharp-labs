@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-10-entity", "lab-10-ent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lab-11-entity-gui", "lab-11-entity-gui\lab-11-entity-gui.csproj", "{7187E63F-55F6-49C7-ADDE-19A96E0B1FCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kenken-01", "kenken-01\kenken-01.csproj", "{2C2D9149-FD8F-43A2-A46C-0D91C2D09FB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{7187E63F-55F6-49C7-ADDE-19A96E0B1FCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7187E63F-55F6-49C7-ADDE-19A96E0B1FCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7187E63F-55F6-49C7-ADDE-19A96E0B1FCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C2D9149-FD8F-43A2-A46C-0D91C2D09FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2D9149-FD8F-43A2-A46C-0D91C2D09FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2D9149-FD8F-43A2-A46C-0D91C2D09FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2D9149-FD8F-43A2-A46C-0D91C2D09FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
