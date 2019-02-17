@@ -176,6 +176,7 @@ namespace kenken_01
                 myRow1.Name = "Row8";
                 matrixGrid.RowDefinitions.Add(myRow8);
             }
+            // stuff
             else if (n == 9)
             {
                 ColumnDefinition myColumn4 = new ColumnDefinition();
@@ -227,7 +228,6 @@ namespace kenken_01
                         Text = i.ToString() + (j+1).ToString(),
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center
-
                     };
                     Grid.SetRow(matrixTb[i, j], i);
                     Grid.SetColumn(matrixTb[i,j], j);
