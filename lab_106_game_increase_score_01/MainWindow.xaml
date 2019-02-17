@@ -1,0 +1,26 @@
+﻿<Window x:Class="lab_106_game_increase_score_01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab_106_game_increase_score_01"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="Aqua">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="591*"/>
+            <ColumnDefinition Width="203*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,50,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"  KeyDown="Name" Name="tb1"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" KeyDown="Level" Name="tb2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="EnterScore" Name="tb3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,50,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Level:" VerticalAlignment="Top" Margin="85,90,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,128,0,0" TextWrapping="Wrap" Text="Score:" VerticalAlignment="Top" RenderTransformOrigin="0.4,-1.165"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  Name="UpScore"/>
+        <TextBlock HorizontalAlignment="Left" Margin="33,165,0,0" TextWrapping="Wrap" Text="Updated Score:" VerticalAlignment="Top"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="301,169,0,0" VerticalAlignment="Top" Width="40" RenderTransformOrigin="-1.12,0.438" Click="ButtonPlus"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="256,169,0,0" VerticalAlignment="Top" Width="40" Click="ButtonMinus"/>
+
+    </Grid>
+</Window>
