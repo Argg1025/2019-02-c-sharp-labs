@@ -24,7 +24,7 @@ namespace kenken_01
     {
         private TextBlock[,] matrixTb;
         private Button[,] matrixButton;
-        int n = 9;
+        int n = 5;
         public MainWindow()
         {
             InitializeComponent();
@@ -227,15 +227,19 @@ namespace kenken_01
                 {
                     matrixTb[i, j] = new TextBlock
                     {
-                        FontSize = 10,
-                        Text = i.ToString() + (j + 1).ToString(),
+                        FontSize = 50,
+                        Text = "",
                         HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center
-                    };
+                        VerticalAlignment = VerticalAlignment.Center,
+                        TextAlignment = TextAlignment.Center,
+                        Width = 70,
+                        Height = 70
+                };
+                   
                     Grid.SetRow(matrixTb[i, j], i);
                     Grid.SetColumn(matrixTb[i, j], j);
                     matrixGrid.Children.Add(matrixTb[i, j]);
-
+                    matrixTb[i, j].MouseDown += tb_Click;
                 }
             }
         }
@@ -273,15 +277,49 @@ namespace kenken_01
                         FontSize = 10,
                         Content = counter.ToString(),
                         HorizontalAlignment = HorizontalAlignment.Center,
-                        VerticalAlignment = VerticalAlignment.Center
+                        VerticalAlignment = VerticalAlignment.Center,
+                        Height = 50,
+                        Width  = 50
                     };
                     Grid.SetRow(matrixButton[i, j], i);
                     Grid.SetColumn(matrixButton[i, j], j);
                     buttonGrid.Children.Add(matrixButton[i, j]);
+                    matrixButton[i, j].Click += button_Click;
                     counter++;
 
                 }
             }
+        }
+
+        private void tb_Click(object sender, EventArgs e)
+        {
+            TextBlock tb = (TextBlock)sender;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    matrixTb[i, j].Background = Brushes.White;
+                    
+                }
+            }
+            tb.Background = Brushes.Yellow;
+        }
+
+        private void button_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                   if (matrixTb[i, j].Background == Brushes.Yellow)
+                    {
+                        matrixTb[i, j].Text = btn.Content.ToString();
+                    }
+                }
+            }
+            
+            
         }
 
 
