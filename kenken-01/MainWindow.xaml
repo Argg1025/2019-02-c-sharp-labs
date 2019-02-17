@@ -69,8 +69,7 @@
         </Border>-->
 
         <Grid Name="matrixGrid" ShowGridLines="True" Height="350" Width="350">
-            
-            
         </Grid>
+        <Grid Name="buttonGrid" ShowGridLines="True" Margin="651,35,9.6,88"></Grid>
     </Grid>
 </Window>

@@ -23,13 +23,16 @@ namespace kenken_01
     public partial class MainWindow : Window
     {
         private TextBlock[,] matrixTb;
+        private Button[,] matrixButton;
+        int n = 9;
         public MainWindow()
         {
             InitializeComponent();
-            createMatrix(9);
+            CreateMatrix(n);
+            CreateButtons();
         }
 
-        private void createMatrix(int n)
+        private void CreateMatrix(int n)
         {
             //if there is some columns or rows set on the grid we start by clearing them
             if (matrixGrid.ColumnDefinitions.Count > 0)
@@ -218,9 +221,9 @@ namespace kenken_01
             }
 
             matrixTb = new TextBlock[n, n];
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < 9; j++)
+                for (int j = 0; j < n; j++)
                 {
                     matrixTb[i, j] = new TextBlock
                     {
@@ -237,96 +240,52 @@ namespace kenken_01
             }
         }
 
+        private void CreateButtons()
+        {
+            ColumnDefinition myColumn1 = new ColumnDefinition();
+            myColumn1.Name = "Column1";
+            buttonGrid.ColumnDefinitions.Add(myColumn1);
+            ColumnDefinition myColumn2 = new ColumnDefinition();
+            myColumn1.Name = "Column2";
+            buttonGrid.ColumnDefinitions.Add(myColumn2);
+            ColumnDefinition myColumn3 = new ColumnDefinition();
+            myColumn1.Name = "Column3";
+            buttonGrid.ColumnDefinitions.Add(myColumn3);
 
-        //    switch (n)
-        //{
-        //    case 4:
-        //        ColumnDefinition myColumn4 = new ColumnDefinition();
-        //        myColumn1.Name = "Column4";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn4);
-        //        break;
-        //    case 5:
-        //        ColumnDefinition myColumn5 = new ColumnDefinition();
-        //        myColumn1.Name = "Column5";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn5);
-        //        break;
-        //    case 6:
-        //        ColumnDefinition myColumn6 = new ColumnDefinition();
-        //        myColumn1.Name = "Column6";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn6);
-        //        break;
-        //    case 7:
-        //        ColumnDefinition myColumn7 = new ColumnDefinition();
-        //        myColumn1.Name = "Column7";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn7);
-        //        break;
-        //    case 8:
-        //        ColumnDefinition myColumn8 = new ColumnDefinition();
-        //        myColumn1.Name = "Column8";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn8);
-        //        break;
-        //    case 9:
-        //        ColumnDefinition myColumn9 = new ColumnDefinition();
-        //        myColumn1.Name = "Column9";
-        //        matrixGrid.ColumnDefinitions.Add(myColumn9);
-        //        break;
-        //    default:
-        //        break;
-        //}
+            RowDefinition myRow1 = new RowDefinition();
+            myColumn1.Name = "Row1";
+            buttonGrid.RowDefinitions.Add(myRow1);
+            RowDefinition myRow2 = new RowDefinition();
+            myColumn1.Name = "Row2";
+            buttonGrid.RowDefinitions.Add(myRow2);
+            RowDefinition myRow3 = new RowDefinition();
+            myColumn1.Name = "Row3";
+            buttonGrid.RowDefinitions.Add(myRow3);
+
+            int counter = 1;
+            matrixButton = new Button[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    matrixButton[i, j] = new Button
+                    {
+                        FontSize = 10,
+                        Content = counter.ToString(),
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center
+                    };
+                    Grid.SetRow(matrixButton[i, j], i);
+                    Grid.SetColumn(matrixButton[i, j], j);
+                    buttonGrid.Children.Add(matrixButton[i, j]);
+                    counter++;
+
+                }
+            }
+        }
 
 
-        //Declare and customize your rows
-        //    RowDefinition myRow1 = new RowDefinition();
-        //    myColumn1.Name = "Row1";
-        //    matrixGrid.RowDefinitions.Add(myRow1);
-        //    RowDefinition myRow2 = new RowDefinition();
-        //    myColumn1.Name = "Row2";
-        //    matrixGrid.RowDefinitions.Add(myRow2);
-        //    RowDefinition myRow3 = new RowDefinition();
-        //    myColumn1.Name = "Row3";
-        //    matrixGrid.RowDefinitions.Add(myRow3);
-        //    //if (n == 4)//if we need 4*4 matrice then add another column
-        //    //{
-        //    //    RowDefinition myRow4 = new RowDefinition();
-        //    //    myColumn1.Name = "Row4";
-        //    //    matrixGrid.RowDefinitions.Add(myRow4);
-        //    //}
 
-        //    switch (n)
-        //    {
-        //        case 4:
-        //            RowDefinition myRow4 = new RowDefinition();
-        //            myRow1.Name = "Row4";
-        //            matrixGrid.RowDefinitions.Add(myRow4);
-        //            break;
-        //        case 5:
-        //            RowDefinition myRow5 = new RowDefinition();
-        //            myRow1.Name = "Row5";
-        //            matrixGrid.RowDefinitions.Add(myRow5);
-        //            break;
-        //        case 6:
-        //            RowDefinition myRow6 = new RowDefinition();
-        //            myRow1.Name = "Row6";
-        //            matrixGrid.RowDefinitions.Add(myRow6);
-        //            break;
-        //        case 7:
-        //            RowDefinition myRow7 = new RowDefinition();
-        //            myRow1.Name = "Row7";
-        //            matrixGrid.RowDefinitions.Add(myRow7);
-        //            break;
-        //        case 8:
-        //            RowDefinition myRow8 = new RowDefinition();
-        //            myRow1.Name = "Row8";
-        //            matrixGrid.RowDefinitions.Add(myRow8);
-        //            break;
-        //        case 9:
-        //            RowDefinition myRow9 = new RowDefinition();
-        //            myRow1.Name = "Row9";
-        //            matrixGrid.RowDefinitions.Add(myRow9);
-        //            break;
-        //        default:
-        //            break;
-        //    }
 
 
 
