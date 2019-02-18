@@ -24,7 +24,8 @@ namespace kenken_01
     {
         private TextBlock[,] matrixTb;
         private Button[,] matrixButton;
-        int n = 5;
+        private int[,] solutionMatrix;
+        int n = 6;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,18 +41,7 @@ namespace kenken_01
             if (matrixGrid.RowDefinitions.Count > 0)
                 matrixGrid.RowDefinitions.Clear();
 
-            //matrixGrids = new Grid[n, n];
-            //for (int i = 0; i < 9; i++)
-            //{
-            //    for (int j = 0; j < 9; j++)
-            //    {
-            //        matrixGrids[i, j] = new Grid
-            //        {
-            //            ShowGridLines = true
-            //        };
-
-            //    }
-            //}
+            
             //Declare and customize your columns
             ColumnDefinition myColumn1 = new ColumnDefinition();
             myColumn1.Name = "Column1";
@@ -287,6 +277,18 @@ namespace kenken_01
                     matrixButton[i, j].Click += button_Click;
                     counter++;
 
+                }
+            }
+        }
+
+        private void SudokuGenerator()
+        {
+            solutionMatrix = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    
                 }
             }
         }
