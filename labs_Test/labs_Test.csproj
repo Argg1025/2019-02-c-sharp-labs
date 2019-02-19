@@ -60,6 +60,10 @@
       <Project>{5a5bcc8b-2cfb-46be-aa37-fc6d661c97a3}</Project>
       <Name>lab_112_collections</Name>
     </ProjectReference>
+    <ProjectReference Include="..\lab_113_arraylist\lab_113_arraylist.csproj">
+      <Project>{44cca5e0-9079-4c10-91ca-6a29db9baebf}</Project>
+      <Name>lab_113_arraylist</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

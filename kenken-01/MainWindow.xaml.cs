@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Diagnostics;
 
 
 namespace kenken_01
@@ -24,13 +24,21 @@ namespace kenken_01
     {
         private TextBlock[,] matrixTb;
         private Button[,] matrixButton;
-        private int[,] solutionMatrix;
-        int n = 6;
+        private int[,] solutionMatrix, firstMatrix;
+        private int[,] gridCheck;
+        private int[] rowCheck;
+        private int[] columnCheck;
+        private List<int> numList;
+        int n = 9;
+        int randNum;
         public MainWindow()
         {
             InitializeComponent();
+            //EasyMode();
+            SudokuGenerator();
             CreateMatrix(n);
             CreateButtons();
+            Trace.WriteLine("something");
         }
 
         private void CreateMatrix(int n)
@@ -218,7 +226,7 @@ namespace kenken_01
                     matrixTb[i, j] = new TextBlock
                     {
                         FontSize = 50,
-                        Text = "",
+                        Text = firstMatrix[i,j].ToString(),
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center,
                         TextAlignment = TextAlignment.Center,
@@ -230,6 +238,17 @@ namespace kenken_01
                     Grid.SetColumn(matrixTb[i, j], j);
                     matrixGrid.Children.Add(matrixTb[i, j]);
                     matrixTb[i, j].MouseDown += tb_Click;
+                }
+            }
+
+            for (int k = 0; k < n; k++)
+            {
+                for (int l = 0; l < n; l++)
+                {
+                    if (matrixTb[k,l].Text == "0")
+                    {
+                        matrixTb[k, l].Text = "";
+                    }
                 }
             }
         }
@@ -281,16 +300,95 @@ namespace kenken_01
             }
         }
 
+        private void MatrixCheck()
+        {
+
+        }
+
         private void SudokuGenerator()
         {
+            bool checkGrid = false, checkRow = false;
+            int gridCount = 0, rowCount = 0, num;
+            numList = new List<int>();
+            Random random = new Random();
             solutionMatrix = new int[n, n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
+            gridCheck = new int[3, 3];
+            rowCheck = new int[n];
+            columnCheck = new int[n];
+
+            
+                for (int i = 0; i < n; i++)
                 {
+                    for (int j = 0; j < n; j++)
+                    {
+
+                        // This loop is to create the array for each row and column which can be used to check if the number is unique
+                        for (int k = 0; k < n; k++)
+                        {
+                            rowCheck[k] = solutionMatrix[i, k];
+                            columnCheck[k] = solutionMatrix[k, j];
+
+                        }
+
+                        for (int l = 1; l < n + 1; l++)
+                        {
+                            if (columnCheck.Contains(l) == false && rowCheck.Contains(l) == false)
+                            {
+                                numList.Add(l);
+                                gridCount++;
+                            }
+
+                        }
+
+                        //do
+                        //{
+                        //    num = random.Next(1, n + 1);
+                        //} while (numList.Contains(num) == false);
+
+
+                        //do
+                        //{
+                        //    num = random.Next(1, n + 1);
+
+                        //} while (columnCheck.Contains(num) == true || rowCheck.Contains(num) == true );
+                        //numList.
+                        num = random.Next(numList.Count);
+                        if (numList.Count != 0)
+                        {
+                            solutionMatrix[i, j] = numList[num];
+                            numList.Clear();
+                        }
+                    }
                     
+                  
                 }
-            }
+        
+        }
+
+        private void EasyMode()
+        {
+            solutionMatrix = new int[9, 9]{
+                                {8,4,6,9,3,7,1,5,2},
+                                {3,1,9,6,2,5,8,4,7},
+                                {7,5,2,1,8,4,9,6,3},
+                                {2,8,5,7,1,3,6,9,4},
+                                {4,6,3,8,5,9,2,7,1},
+                                {9,7,1,2,4,6,3,8,5},
+                                {1,2,7,5,9,8,4,3,6},
+                                {6,3,8,4,7,1,5,2,9},
+                                {5,9,4,3,6,2,7,1,8}
+                            };
+            firstMatrix = new int[9, 9]{
+                                {8,0,0,9,3,0,0,0,2},
+                                {0,0,9,0,0,0,0,4,0},
+                                {7,0,2,1,0,0,9,6,0},
+                                {0,0,0,0,0,0,0,9,0},
+                                {0,6,0,0,0,0,0,7,0},
+                                {0,7,0,0,0,6,0,0,5},
+                                {0,2,7,0,0,8,4,0,6},
+                                {0,3,0,0,0,0,5,0,0},
+                                {5,0,0,0,6,2,0,0,8}
+                            };
         }
 
         private void tb_Click(object sender, EventArgs e)
@@ -314,16 +412,32 @@ namespace kenken_01
             {
                 for (int j = 0; j < n; j++)
                 {
-                   if (matrixTb[i, j].Background == Brushes.Yellow)
+                    if (matrixTb[i, j].Background == Brushes.Yellow)
                     {
                         matrixTb[i, j].Text = btn.Content.ToString();
                     }
                 }
             }
-            
-            
         }
 
+        private void WinCheck()
+        {
+            int winCount = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (solutionMatrix[i,j] == firstMatrix[i, j])
+                    {
+                        winCount++;
+                    }
+                }
+            }
+            if (winCount == 81)
+            {
+                WinTb.Text = "You Win!!!";
+            }
+        }
 
 
 

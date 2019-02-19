@@ -67,9 +67,11 @@
         <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="3" Grid.Row="3">
             <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
         </Border>-->
-
+        <Border BorderBrush="Black" BorderThickness="3">
         <Grid Name="matrixGrid" ShowGridLines="True" Height="350" Width="350">
         </Grid>
+        </Border>
         <Grid Name="buttonGrid" ShowGridLines="True" Margin="651,35,9.6,88"></Grid>
+        <TextBlock Name="WinTb" HorizontalAlignment="Left" Margin="49,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
     </Grid>
 </Window>
