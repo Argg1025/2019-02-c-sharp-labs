@@ -29,8 +29,8 @@ namespace labs_Test
         {
             
             // arrange 
-            var expected01 = -10;
-            var expected02 = -10;
+            var expected01 = 480;
+            var expected02 = 48000;
             var a = new Arraylist();
             // act
             var actual01 = a.arrayListMethod(1, 2, 3, 4);
