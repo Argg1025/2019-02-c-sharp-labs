@@ -13,10 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.Entity;
-//using System.Windows.Data;
 
 
-namespace lab_11_entity_gui2
+namespace lab_114
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -37,36 +36,28 @@ namespace lab_11_entity_gui2
             using (var db = new NorthwindEntities())
             {
                 customers = db.Customers.ToList<Customer>();
-
-                foreach (var c in customers)
-                {
-                    customerList.Add($"{c.ContactName} has ID {c.CustomerID}.");
-                }
-
-                ListBox01.ItemsSource = customerList;
-                
-            }
-
-            using (var db = new NorthwindEntities())
-            {
-                customers = db.Customers.ToList<Customer>();
-                ListBox02.ItemsSource = customers;
-
-            }
-
-            using (var db = new NorthwindEntities())
-            {
-                customers = db.Customers.ToList<Customer>();
-                ListBox03.ItemsSource = customers;
-                ListBox03.DisplayMemberPath = "ContactName";
-
+                People.ItemsSource = customers;
+                People.DisplayMemberPath = "ContactName"; ;
             }
         }
 
-        private void ListBox03_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void PeopleSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            customer = (Customer)ListBox03.SelectedItem;
-            TextBoxName.Text = customer.ContactName;
+            customer = (Customer)People.SelectedItem;
+            Selected.Text = $"{customer.ContactName}\n {customer.City}\n {customer.Country}";
+            string name = customer.ContactName;
+
+        }
+
+        private void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new NorthwindEntities())
+            {
+                var customerToUpdate =
+                        db.Customers.Where(c => c.ContactName == customer.ContactName).FirstOrDefault();
+                if (!UpdateName.Text.Equals("")) customerToUpdate.ContactName = UpdateName.Text;
+                db.SaveChanges();
+            }
         }
     }
 }
