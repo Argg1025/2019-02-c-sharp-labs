@@ -30,13 +30,9 @@ namespace kenken_01
         private int[] columnCheck;
         private List<int> numList;
         int n = 9;
-        int randNum;
         public MainWindow()
         {
             InitializeComponent();
-            //EasyMode();
-            ////SudokuGenerator();
-            //CreateMatrix(n);
             CreateButtons();
             Trace.WriteLine("something");
         }
@@ -177,7 +173,6 @@ namespace kenken_01
                 myRow1.Name = "Row8";
                 matrixGrid.RowDefinitions.Add(myRow8);
             }
-            // stuff
             else if (n == 9)
             {
                 ColumnDefinition myColumn4 = new ColumnDefinition();
@@ -300,22 +295,14 @@ namespace kenken_01
             }
         }
 
-        private void MatrixCheck()
-        {
-
-        }
-
         private void SudokuGenerator()
         {
-            bool checkGrid = false, checkRow = false;
-            int gridCount = 0, rowCount = 0, num;
             numList = new List<int>();
             Random random = new Random();
             solutionMatrix = new int[n, n];
             gridCheck = new int[3, 3];
             rowCheck = new int[n];
             columnCheck = new int[n];
-            //Random random = new Random();
             solutionMatrix = new int[9, 9]
             {
                                 {1,2,3,4,5,6,7,8,9},
@@ -344,51 +331,6 @@ namespace kenken_01
 
                 notBored = !CheckValidSudoku(solutionMatrix);
             }
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < n; j++)
-            //    {
-
-            //        // This loop is to create the array for each row and column which can be used to check if the number is unique
-            //        for (int k = 0; k < n; k++)
-            //        {
-            //            rowCheck[k] = solutionMatrix[i, k];
-            //            columnCheck[k] = solutionMatrix[k, j];
-
-            //        }
-
-            //        for (int l = 1; l < n + 1; l++)
-            //        {
-            //            if (columnCheck.Contains(l) == false && rowCheck.Contains(l) == false)
-            //            {
-            //                numList.Add(l);
-            //                gridCount++;
-            //            }
-
-            //        }
-
-            //do
-            //{
-            //    num = random.Next(1, n + 1);
-            //} while (numList.Contains(num) == false);
-
-
-            //do
-            //{
-            //    num = random.Next(1, n + 1);
-
-            //} while (columnCheck.Contains(num) == true || rowCheck.Contains(num) == true );
-            //numList.
-            //        num = random.Next(numList.Count);
-            //        if (numList.Count != 0)
-            //        {
-            //            solutionMatrix[i, j] = numList[num];
-            //            numList.Clear();
-            //        }
-            //    }
-            //}
-
         }
 
         private void EasyMode()
@@ -511,15 +453,6 @@ namespace kenken_01
                     matrixTb[i, j].Background = Brushes.BlueViolet;
                 }
             }
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < n; j++)
-            //    {
-            //        matrixTb[i, j].Background = Brushes.White;
-
-            //    }
-            //}
             tb.Background = Brushes.Yellow;
         }
 
