@@ -7,15 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#58A4B0">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="403*"/>
+            <ColumnDefinition Width="391*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
             <Grid Name="matrixGrid" ShowGridLines="True" Height="350" Width="350" Background="White">
             </Grid>
         </Border>
 
 
 
-        <Grid Name="buttonGrid"  Margin="651,111,9.6,120" Background="#D8DBE2"></Grid>
-        
+        <Grid Name="buttonGrid"  Margin="248.4,111,9.6,120" Background="#D8DBE2" Grid.Column="1"></Grid>
+
         <TextBlock Name="WinTb" HorizontalAlignment="Left" Margin="27,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161" Height="38" FontSize="25" TextAlignment="Center"/>
         <Button Name="Easy" Content="Easy Mode" HorizontalAlignment="Left" Margin="58,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
         <Button Name="Random" Content="Random" HorizontalAlignment="Left" Margin="58,305,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>

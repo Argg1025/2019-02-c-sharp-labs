@@ -34,7 +34,6 @@ namespace kenken_01
         {
             InitializeComponent();
             CreateButtons();
-            Trace.WriteLine("something");
         }
 
         private void CreateMatrix(int[,] matrix, int n)
