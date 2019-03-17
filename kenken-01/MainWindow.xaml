@@ -5,71 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:kenken_01"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#58A4B0">
     <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="403*"/>
+            <ColumnDefinition Width="391*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="0" Grid.Row="0">
-        <TextBlock Grid.Column="0" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+        <Border BorderBrush="Black" BorderThickness="3" Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <Grid Name="matrixGrid" ShowGridLines="True" Height="350" Width="350" Background="White">
+            </Grid>
         </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="1" Grid.Row="0">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="2" Grid.Row="0">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="3" Grid.Row="0">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="0" Grid.Row="1">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="1" Grid.Row="1">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="2" Grid.Row="1">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="3" Grid.Row="1">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="0" Grid.Row="2">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="1" Grid.Row="2">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="2" Grid.Row="2">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="3" Grid.Row="2">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="0" Grid.Row="3">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="1" Grid.Row="3">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="2" Grid.Row="3">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>
-        <Border BorderThickness="3" BorderBrush="Black" Background="CornflowerBlue" Grid.Column="3" Grid.Row="3">
-            <TextBlock Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
-        </Border>-->
 
-        <Grid Name="matrixGrid" ShowGridLines="True" Height="350" Width="350">
-        </Grid>
-        <Grid Name="buttonGrid" ShowGridLines="True" Margin="651,35,9.6,88"></Grid>
+
+
+        <Grid Name="buttonGrid"  Margin="248.4,111,9.6,120" Background="#D8DBE2" Grid.Column="1"></Grid>
+
+        <TextBlock Name="WinTb" HorizontalAlignment="Left" Margin="27,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="161" Height="38" FontSize="25" TextAlignment="Center"/>
+        <Button Name="Easy" Content="Easy Mode" HorizontalAlignment="Left" Margin="58,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button Name="Random" Content="Random" HorizontalAlignment="Left" Margin="58,305,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+        <Button Name="Easy2" Content="Easy Mode 2" HorizontalAlignment="Left" Margin="58,281,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="58,329,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+        <TextBlock HorizontalAlignment="Left" Margin="27,47,0,0" TextWrapping="Wrap" Text="Sudoku" VerticalAlignment="Top" Width="161" Height="58" FontSize="40" TextAlignment="Center"/>
+
+
     </Grid>
 </Window>

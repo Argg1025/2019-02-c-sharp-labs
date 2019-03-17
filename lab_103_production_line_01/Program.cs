@@ -17,7 +17,7 @@ namespace lab_103_production_line_01
             {
                 string randName = parentArray[rnd.Next(10)];
                 int randAge = rnd.Next(100);
-                DateTime;
+                //DateTime;
                 parents.Add(new Parent());
             }
         }
