@@ -4,24 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace lab_121_hash_set_to_excel
 {
     class Program
-    {
-
+    { 
         static void Main(string[] args)
         {
             HashSetToExcel a = new HashSetToExcel();
             a.HashSetToTest(1, 2, 3);
-
-
-
         }
-
-
     }
-
     public class HashSetToExcel
     {
         public Custom HashSetToTest(int a, int b, int c) {
@@ -51,10 +45,18 @@ namespace lab_121_hash_set_to_excel
             }
             s.Stop();
             Console.WriteLine($"a:{numDict[0]}\nb:{numDict[1]}\nc:{numDict[2]}\nelapsedTime:{s.ElapsedMilliseconds}");
+            string newCSV = "Custom.csv";
+            if (!File.Exists(newCSV))
+            {
+                string headers =   "Date, Num 1, Num 2, Num 3" + Environment.NewLine;
+                File.WriteAllText(newCSV, headers);
+            }
+            string stuff = DateTime.Now.ToString("MM/dd/yyyy h:mm tt") + $", {numDict[0].ToString()} ,  {numDict[1].ToString()}  , {numDict[2].ToString()}" + Environment.NewLine;
+            File.AppendAllText(newCSV, stuff);
+            Process.Start("Custom.csv");
             return new Custom(numDict[0], numDict[1], numDict[2], (int)s.ElapsedMilliseconds);
         }
     }
-
     public class Custom
     {
         public int first, second, third, elapsed;

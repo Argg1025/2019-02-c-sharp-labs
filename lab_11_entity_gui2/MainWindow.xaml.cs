@@ -42,7 +42,7 @@ namespace lab_11_entity_gui2
 
                 foreach (var c in customers)
                 {
-                    customerList.Add($"{c.ContactName} has ID {c.CustomerID}.");
+                    customerList.Add($"{c.ContactName} has ID {c.CustomerID} company name: {c.CompanyName}  contact title: {c.ContactTitle} address: {c.Address} city: {c.City}  country: {c.Country}  region: {c.Region} postcode: {c.PostalCode} phone: {c.Phone} fax: {c.Fax}.");
                 }
 
                 ListBox01.ItemsSource = customerList;
